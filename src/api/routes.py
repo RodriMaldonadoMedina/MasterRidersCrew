@@ -122,8 +122,7 @@ def get_all_friends():
         main_friend_id=get_jwt_identity()).all()
 
     serializer = list(map(lambda x: x.serialize_list_friend(), friendSearch))
-    #print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")   
-    #print(serializer)
+
     return jsonify(serializer), 200
 
 
@@ -139,10 +138,7 @@ def delete_frienship(id):
     current_user = get_jwt_identity()
     friends = Form_friendship.query.filter_by(main_friend_id = current_user).all()    
     serializer = list(map(lambda x: x.serialize_delete(), friends))
-    #print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    #print("SERIALIZER DELETE!!!")
-    #print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    #print(serializer)
+
     return jsonify(serializer), 200
 
 ################################################################################
