@@ -7,7 +7,7 @@ import { ShowPost } from "../component/post/showPosts";
 import { Context } from "../store/appContext.js";
 
 const UserHome = () => {
-  const {store, actions} = useContext(Context);
+  const {actions} = useContext(Context);
   let navigate = useNavigate();
 
   useEffect(() => {
