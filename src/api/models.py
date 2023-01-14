@@ -114,11 +114,9 @@ class Form_friendship(db.Model):
 
     def serialize_list_friend(self):
         profile_picture = None
-        favorite = User_Data.query.filter_by(
-            user_id=self.secondary_friend_id).first()
+        favorite = User_Data.query.filter_by(user_id=self.secondary_friend_id).first()
         if favorite.profile_picture is not None:
-            favorite_profile_picture = Image.query.get(
-                favorite.profile_picture)
+            favorite_profile_picture = Image.query.get(favorite.profile_picture)
             profile_picture = favorite_profile_picture.image
 
         return {
@@ -133,8 +131,7 @@ class Form_friendship(db.Model):
 
     def serialize_delete(self):
         profile_picture = None
-        user = User_Data.query.filter_by(
-            user_id=self.secondary_friend_id).first()
+        user = User_Data.query.filter_by(user_id=self.secondary_friend_id).first()
         if user.profile_picture is not None:
             user_profile_picture = Image.query.get(user.profile_picture)
             profile_picture = user_profile_picture.image
